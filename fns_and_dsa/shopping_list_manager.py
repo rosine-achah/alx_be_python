@@ -11,31 +11,103 @@ def main():
         display_menu()
         try:
             choice = int(input("Enter your choice: "))
+        
             if choice == 1:
-                item = input("Enter the item to add:  ")
-                
-                shopping_list.append(item)
-                print(f"{item} has been added to the shopping list and the updated shopping list is {shopping_list}")
+                item = input("Enter the item to add: ")
+                item_name = item.lower()
+                if item_name in shopping_list:
+                    print(f"{item} already exist")
+                    add = input("Would you like to keep it? (Y/N) ").lower()
+                    if add == "y":
+                        shopping_list.append(item_name)
+                    else:
+                        exit
+                else:
+                    shopping_list.append(item_name)
             elif choice == 2:
-                item = input("Enter the item name to remove: ")
-                if item in shopping_list:
+                item = input("Enter the item to remove: ")
+                if item not in shopping_list:
+                    print("Item dose not exist")
+                else:
                     shopping_list.remove(item)
-                    print(f"{item} has been removed from the shopping list.")
-                else:
-                    print(f"{item} not found in the shopping list.")
+                    print(f"{item} has been removed")
             elif choice == 3:
-                if len(shopping_list) == 0:
-                    print("The shopping list is currently empty.") 
+                if not shopping_list:
+                    print("The list is empty")
                 else:
-                    print(f"The shopping list is {shopping_list}")
+                    print("\nShopping list")
+                    for index, item in enumerate(shopping_list, start=1):
+                        print(f"{index}. {item.capitalize()}")
             elif choice == 4:
                 print("Goodbye!")
                 break
             else:
                 print("Invalid choice. Please try again.")
-        except Valueerror:
-            print("You have entered an invalid input.")
-    
-           
-if __name__ == "__main__":
+        except ValueError:
+            print("choice is not a number")
+
+if name == "__main__":
     main()
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
