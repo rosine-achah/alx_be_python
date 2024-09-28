@@ -8,6 +8,7 @@ def display_menu():
 def main():
     shopping_list = []
     while True:
+        display_menu()
         try:
             choice = int(input("Enter your choice: "))
             if choice == 1:
