@@ -1,5 +1,3 @@
-
- 
 def safe_divide(numerator, denominator):
     try:
         numerator = float(numerator)
